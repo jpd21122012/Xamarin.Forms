@@ -35,9 +35,9 @@ namespace Xamarin.Forms.Platform.Android
 
 		internal static void UpdateHorizontalAlignment(this EditText view, TextAlignment alignment)
 		{
-			if ((int)Build.VERSION.SdkInt < 17)
-				view.Gravity = alignment.ToHorizontalGravityFlags();
-			else
+			view.Gravity = alignment.ToHorizontalGravityFlags();
+
+			if ((int)Build.VERSION.SdkInt >= 17)
 				view.TextAlignment = alignment.ToTextAlignment();
 		}
 	}
